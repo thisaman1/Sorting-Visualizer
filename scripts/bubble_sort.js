@@ -29,13 +29,18 @@ function Bubble()
 
                 div_update(divs[j],div_sizes[j], "red");//Height update
                 div_update(divs[j+1],div_sizes[j+1], "red");//Height update
-
                 swapped = true;
             }
             div_update(divs[j],div_sizes[j], "blue");//Color updat
         }
-        div_update(divs[j],div_sizes[j], "green");//Color update
-        if (!swapped) break;
+        if (!swapped) {
+            for (var k = 0; k < array_size; k++) {
+                div_update(divs[k], div_sizes[k], "green"); // Mark all elements as green
+            }
+            break; // No swaps, array is already sorted
+        }
+
+        div_update(divs[j], div_sizes[j], "green"); // Color update
     }
     div_update(divs[0],div_sizes[0], "green");//Color update
 
